@@ -1,0 +1,558 @@
+/* Reset and base styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  /* overflow: scroll; */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:first baseline;
+}
+
+/* Navigation and Header */
+header {
+  background: #007bff;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  /* height: 30%; */
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease-in-out;
+}
+
+header nav a:hover,
+header nav a:focus { /* Added focus for accessibility */
+  color: #cce;
+  outline: none; /* Optionally remove outline and replace with a more visually appealing focus indicator */
+}
+
+.header-content h1, .header-content p {
+  margin: 20px 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Badge Styling for a Gold Bar Effect */
+.badge {
+  position: relative;
+  background: linear-gradient(145deg, #ffd700 20%, #ffdf00 40%, #ffdd00 50%, #ffdf00 60%, #ffd700 80%);
+  color: #004085; /* Adjusted color for better visibility on gold */
+  padding: 0px 3px;
+  border-radius: 2px;
+  font-size: 0.4em;
+  vertical-align: super;
+  margin-left: 4px;
+  display: inline-block;
+  box-shadow: inset 0 0 4px #c79300; /* Inner shadow for depth */
+  border: 1px solid #c79300; /* Slight border for definition */
+  overflow: hidden; /* Ensures pseudo-elements don't overflow the badge's boundaries */
+}
+
+/* Inner Glow Effect */
+.badge::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 2px; /* Match the badge's border-radius */
+  background: linear-gradient(45deg, rgba(255, 244, 214, 0.7), rgba(255, 255, 255, 0.7), rgba(255, 244, 214, 0.7));
+  opacity: 0.7;
+  filter: blur(3px);
+  z-index: -1;
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.7; transform: scale(1); filter: blur(3px); }
+  50% { opacity: 0.9; transform: scale(1.05); filter: blur(5px); }
+}
+
+/* External Shine Effect */
+.badge::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  animation: shine 4s linear infinite;
+  border-radius: 2px;
+}
+
+@keyframes shine {
+  from { transform: rotate(0deg) translateX(-50%); }
+  to { transform: rotate(360deg) translateX(-50%); }
+}
+
+.paper-link {
+  display: inline-block;
+  background-color: #007bff; /* Primary color for consistency */
+  color: #ffffff; /* White text for contrast */
+  padding: 8px 16px; /* Reduced padding for a smaller button */
+  border-radius: 20px; /* Adjusted border-radius for aesthetic consistency with the smaller size */
+  font-weight: 600; /* Bold text */
+  font-size: 0.9em; /* Optionally adjust font size for better fit */
+  text-decoration: none; /* Removes underline from the link */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Defined shadow for depth */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.paper-link:hover, .paper-link:focus {
+  background-color: #0056b3; /* Darker shade on hover/focus for interaction feedback */
+  color: #ffffff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Larger shadow for a "lifting" effect */
+  transform: translateY(-2px); /* Slightly raises the button */
+  outline: none; /* Consider accessibility alternatives */
+}
+
+.paper-link:active {
+  background-color: #004494; /* Even darker for the active state */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Smaller shadow to simulate "pressing" down */
+  transform: translateY(1px); /* Moves the button down */
+}
+
+.main-content {
+  display: flex;
+  padding: 20px 50px;
+}
+
+/* Enhanced Category List Styling */
+.category-list {
+  flex: 1;
+  padding: 0 30px;
+  max-width: 300px; /* Limit width for better readability */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center category names */
+}
+
+.category-list h2 {
+  margin-bottom: 30px;
+  color: #2c3e50; /* Darker shade for contrast */
+  font-size: 24px; /* Slightly larger for emphasis */
+  font-weight: bold; /* Make the header bold */
+}
+
+.category-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%; /* Ensure the list fills the container */
+}
+
+.category-list ul li {
+  margin-bottom: 15px;
+  width: 100%; /* Ensure the list items fill the container */
+}
+
+.category-list ul li a {
+  display: flex; /* Use flex to easily center text */
+  justify-content: center; /* Center text horizontally */
+  align-items: center; /* Center text vertically */
+  text-decoration: none;
+  color: #ffffff; /* White text for better readability */
+  background-image: linear-gradient(to right, #ff5f6d, #ffc371); /* Updated gradient for a vibrant look */
+  padding: 10px 20px; /* Increased padding for a more substantial touch area */
+  border-radius: 25px; /* More pronounced rounded corners for a softer look */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+  font-weight: bold; /* Make category names bold */
+}
+
+.category-list ul li a:hover, .category-list ul li a:focus {
+  background-image: linear-gradient(to right, #ffc371, #ff5f6d); /* Reverse gradient for interactive effect */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Slightly larger shadow for a "pop" effect */
+  transform: translateY(-3px); /* Subtle lift effect on hover */
+}
+
+/* Active State for Category Items */
+.category-list ul li a.active {
+  transform: scale(0.95); /* Slightly reduce size to simulate pressing */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Increase shadow for depth */
+  background-image: linear-gradient(to right, #ff5f6d, #ffc371); /* Keep the gradient consistent or change as desired */
+}
+
+.category-list ul li a:active {
+  /* Immediate feedback on click, before active class is applied */
+  transform: scale(0.95); /* Mimic pressing effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+
+.papers-display {
+  flex: 1.2;
+  padding: 20px 50px;
+  background: linear-gradient(to right, #ffffff, #f8f9fa); /* A subtle gradient for depth */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow for a floating effect */
+  border-radius: 12px; /* Softer rounded corners for a modern touch */
+  border: none; /* Removing the solid border for a cleaner look */
+  margin-left: 20px; /* Ensures space between the list and papers display */
+  overflow: hidden; /* Ensures nothing overflows the rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for interactive effects */
+  max-height: 900px; /* Adjust this value based on your layout */
+  overflow-y: auto; /* Enables vertical scrolling */
+}
+
+/* Base Timeline Styling */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 2px; /* Thinner line for a sleek look */
+  background-color: #007bff; /* Use a color that matches the theme for better integration */
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+}
+
+/* Styling Containers for Timeline Entries */
+.container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 45%; /* Slightly reduced width for better spacing */
+}
+
+.container.left {
+  left: 0;
+}
+
+.container.right {
+  left: 55%; /* Adjust based on the container width to align properly */
+}
+
+/* Arrow Styling */
+.container::after {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  border: medium solid #007bff; /* Match the timeline color for consistency */
+}
+
+.container.left::after {
+  right: -15px; /* Adjust positioning for visual alignment */
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #007bff;
+}
+
+.container.right::after {
+  left: -15px; /* Adjust positioning for visual alignment */
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #007bff transparent transparent;
+}
+
+/* Content Styling */
+.content {
+  padding: 20px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Initial shadow for subtlety */
+  opacity: 1; /* Ensure content is visible, adjust if you have specific animations */
+  transform: translateY(0); /* Start at its final position if not animating initially */
+  transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease; /* Smooth transitions for shadow, scale, and background color */
+}
+
+.content:hover {
+  background-color: #f9f9f9; /* Lighten background on hover */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Enhanced shadow for depth */
+  transform: scale(1.05); /* Slightly scale up the content box */
+}
+
+/* Paper Title Styling */
+.content h4 a {
+  color: #007bff; /* Color for the titles */
+  text-decoration: none; /* Removes underline from links */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Author Name Styling */
+.content p {
+  color: #333; /* Dark grey for text for readability */
+  margin-top: 5px; /* Spacing between title and authors */
+}
+
+
+@keyframes containerFadeIn {
+  to {
+    opacity: 1; /* End with the container fully visible */
+    transform: translateY(0); /* Move to final position */
+  }
+}
+
+/* Year Label Styling for Clear Visibility */
+.time-label {
+  width: auto; /* Auto width based on content */
+  padding: 5px 10px; /* Adjust padding */
+  background-color: #007bff; /* Background color for visibility */
+  color: white; /* Text color for contrast */
+  font-weight: bold;
+  font-size: 16px; /* Adjusted font size for clarity */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 4px; /* Rounded corners for a modern look */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Shadow for depth */
+  z-index: 2; /* Ensure it's above the timeline */
+}
+
+@media screen and (max-width: 768px) {
+  /* Adjustments for better readability and layout on smaller screens */
+  .category-list, .papers-display, .timeline {
+    width: 100%; /* Ensures full width */
+    padding: 20px 10px; /* Adjust padding for consistency */
+    margin-bottom: 0px; /* Reduces bottom margin to lessen the space between elements */
+    border: none; /* Keeps the styling consistent */
+  }
+
+  /* Ensures vertical stacking for a clean layout */
+  .main-content, .papers-display {
+    flex-direction: column;
+  }
+
+  .container {
+    width: 100%; /* Uses full width for better space utilization */
+    margin-bottom: 5px; /* Adjusts spacing between timeline entries */
+    left: auto;
+    right: auto;
+  }
+
+  .timeline::after, .container::after, .container.left::after, .container.right::after {
+    display: none;
+  }
+
+  .timeline {
+    overflow-y: auto; /* Enables vertical scrolling */
+    max-height: 70vh; /* Limits the height to a percentage of the viewport height */
+  }
+
+  .content {
+    box-shadow: none; /* Opt for a simpler, flatter look */
+    border: 1px solid #ddd; /* Subtle border for definition */
+    margin: 5px 0; /* Margin to separate entries */
+    border-radius: 4px; /* Slight rounding of corners */
+  }
+
+  .time-label {
+    display: none;
+  }
+
+}
+
+.team-section {
+  text-align: center;
+  padding: 50px;
+  background-color: #f4f4f4; /* Light grey background */
+}
+
+.team-section h2 {
+  margin-bottom: 30px; /* Adjust this value as needed */
+}
+
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px; /* Adjust based on your preference */
+}
+
+.team-member {
+  width: 200px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  position: relative; /* Needed for absolute positioning of the pseudo-element */
+  margin-bottom: 30px; /* Ensure there's space below for the pseudo-element */
+  overflow: hidden; /* Ensures the pseudo-element's curvature blends into the card */
+}
+
+.team-member::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* Slightly overlaps the bottom of the card */
+  left: 0;
+  width: 100%;
+  height: 10px; /* Gives enough space for the gradient and curvature */
+  background: linear-gradient(
+    270deg, 
+    #ff5f6d, #ffc371, #24C6DC, #514A9D, 
+    #FF5F6D, #FFC371, #24C6DC, #514A9D
+  ); /* Repeating the colors for a continuous effect */
+  background-size: 400% 100%;
+  animation: moveStreak 30s ease infinite;
+  border-radius: 5px 5px 0 0; /* Curved to blend with the card */
+}
+
+@keyframes moveStreak {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.team-member img {
+  width: 100px; /* Adjust based on your preference */
+  height: 100px; /* Keeping width and height the same for a circle */
+  border-radius: 50%; /* Creates the circle shape */
+  object-fit: cover; /* Ensures the image covers the space well */
+  margin-bottom: 15px; /* Space between the image and the text */
+}
+
+.team-member h3, .team-member p {
+  margin: 5px 0; /* Adjust the spacing as needed */
+}
+
+.team-member:hover {
+  transform: scale(1.05); /* Slight increase in size on hover for effect */
+}
+
+.contact-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #f0f4f8;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.contact-section h2, .contact-section h3 {
+  color: #333;
+}
+
+.contact-section .intro, .contact-section p {
+  color: #555;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.contact-methods {
+  display: flex;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.contact-methods > div {
+  flex: 1;
+  background: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.contact-methods h3 {
+  margin-top: 0;
+}
+
+.email a, .github a {
+  color: #007bff; /* A pleasant, clickable blue. Adjust color as needed */
+  font-weight: bold; /* Makes the text slightly bolder */
+  text-decoration: none; /* Removes underline */
+  padding: 2px 0; /* Minimal padding to not disrupt line height much */
+  border-bottom: 2px solid transparent; /* Invisible border for a smooth transition on hover */
+  transition: border-color 0.3s ease, color 0.3s ease; /* Smooth transitions for color and border */
+}
+
+.email a:hover, .github a:hover {
+  color: #0056b3; /* A darker shade of blue for hover state */
+  border-color: #0056b3; /* Makes the underline appear on hover */
+}
+
+.github-link {
+  display: inline-block;
+  background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 25px;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease-in-out;
+}
+
+.github-link:hover {
+  transform: scale(1.05);
+}
+
+.follow-us {
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.github-link {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.popup-message {
+  position: fixed;
+  bottom: 20px; /* Adjust as needed to position above the footer */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f8f9fa;
+  color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  z-index: 1000; /* Ensures it's above other content */
+  max-width: 80%;
+  text-align: center;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  border: none;
+  background: none;
+  color: #333;
+  font-size: 24px;
+  cursor: pointer;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM-Planning</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="wrapper">
+        <header>
+            <nav>
+                <a href="#">Home</a>
+                <a href="team.html">Team</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="header-content">
+                <h1>On the Prospects of Incorporating Large Language Models in Automated Planning and Scheduling <span class="badge">Accepted at ICAPS 2024</span></h1>
+                <p>Welcome to the interactive visualization of the taxonomy of recent research in the intersection of LLMs and Planning.</p>
+                <a target="_blank" href="https://arxiv.org/abs/2401.02500" class="paper-link">Read the Full Paper</a>
+            </div>
+        </header>
+        <div class="main-content">
+            <aside class="category-list">
+                <h2>LLMs in Automated Planning and Scheduling</h2>
+                <ul>
+                    <li><a href="#" data-category="language-translation">Language Translation</a></li>
+                    <li><a href="#" data-category="plan-generation">Plan Generation</a></li>
+                    <li><a href="#" data-category="model-construction">Model Construction</a></li>
+                    <li><a href="#" data-category="multiagent-planning">Multiagent Planning</a></li>
+                    <li><a href="#" data-category="interactive-planning">Interactive Planning</a></li>
+                    <li><a href="#" data-category="heuristics-optimization">Heuristics Optimization</a></li>
+                    <li><a href="#" data-category="tool-integration">Tool Integration</a></li>
+                    <li><a href="#" data-category="brain-inspired-planning">Brain-inspired Planning</a></li>
+                </ul>
+            </aside>
+            <section class="papers-display">
+                <h2>Selected Category Papers</h2>
+                <div class="category-description">
+                    <p id="category-description-text"></p>
+                  </div>
+                <div id="papers-container">
+                    <!-- Papers will be loaded here based on the category selection -->
+                </div>
+            </section>
+        </div>
+        <div class="popup-message" id="popupMessage">
+            <strong>Note:</strong> Some paper titles might have been updated from the time of adding to the visualization; however, the links still point to the same paper.
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+        </div>     
+    </div>
+
+<script src="papers-data.js"></script>
+<script src="script.js"></script>
+<script>
+    document.querySelectorAll('.category-list ul li a').forEach(item => {
+  item.addEventListener('click', function(e) {
+    // Prevent default link action
+    e.preventDefault();
+
+    // Remove 'active' class from all items
+    document.querySelectorAll('.category-list ul li a').forEach(link => {
+      link.classList.remove('active');
+    });
+
+    // Add 'active' class to clicked item
+    this.classList.add('active');
+  });
+});
+function closePopup() {
+    document.getElementById('popupMessage').style.display = 'none';
+}
+</script>
+</body>
+</html>
