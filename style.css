@@ -216,173 +216,42 @@ header nav a:focus { /* Added focus for accessibility */
 }
 
 
-.papers-display {
-  flex: 1.2;
-  padding: 20px 50px;
-  background: linear-gradient(to right, #ffffff, #f8f9fa); /* A subtle gradient for depth */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow for a floating effect */
-  border-radius: 12px; /* Softer rounded corners for a modern touch */
-  border: none; /* Removing the solid border for a cleaner look */
-  margin-left: 20px; /* Ensures space between the list and papers display */
-  overflow: hidden; /* Ensures nothing overflows the rounded corners */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for interactive effects */
-  max-height: 900px; /* Adjust this value based on your layout */
-  overflow-y: auto; /* Enables vertical scrolling */
+.papers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Adjust space between paper entries */
 }
 
-/* Base Timeline Styling */
-.timeline {
-  position: relative;
-  max-width: 1200px;
-  margin: 20px auto;
+.papers-list .paper-entry:first-child {
+  margin-top: 20px; /* Adds space above the first paper entry */
 }
 
-.timeline::after {
-  content: '';
-  position: absolute;
-  width: 2px; /* Thinner line for a sleek look */
-  background-color: #007bff; /* Use a color that matches the theme for better integration */
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -1px;
+.paper-entry {
+  background-color: #f9f9f9; /* Light background for each entry */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Padding around the content */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions for hover effects */
 }
 
-/* Styling Containers for Timeline Entries */
-.container {
-  padding: 10px 40px;
-  position: relative;
-  background-color: inherit;
-  width: 45%; /* Slightly reduced width for better spacing */
+.paper-entry:hover {
+  transform: translateY(-5px); /* Slight raise effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
-.container.left {
-  left: 0;
+.paper-content h4 a {
+  color: #007bff; /* Keep the link color for consistency */
+  text-decoration: none; /* Removes underline */
 }
 
-.container.right {
-  left: 55%; /* Adjust based on the container width to align properly */
+.paper-content p {
+  color: #333; /* Maintain readability */
 }
 
-/* Arrow Styling */
-.container::after {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  border: medium solid #007bff; /* Match the timeline color for consistency */
-}
-
-.container.left::after {
-  right: -15px; /* Adjust positioning for visual alignment */
-  border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent #007bff;
-}
-
-.container.right::after {
-  left: -15px; /* Adjust positioning for visual alignment */
-  border-width: 10px 10px 10px 0;
-  border-color: transparent #007bff transparent transparent;
-}
-
-/* Content Styling */
-.content {
-  padding: 20px;
-  background-color: white;
-  position: relative;
-  border-radius: 6px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Initial shadow for subtlety */
-  opacity: 1; /* Ensure content is visible, adjust if you have specific animations */
-  transform: translateY(0); /* Start at its final position if not animating initially */
-  transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease; /* Smooth transitions for shadow, scale, and background color */
-}
-
-.content:hover {
-  background-color: #f9f9f9; /* Lighten background on hover */
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Enhanced shadow for depth */
-  transform: scale(1.05); /* Slightly scale up the content box */
-}
-
-/* Paper Title Styling */
-.content h4 a {
-  color: #007bff; /* Color for the titles */
-  text-decoration: none; /* Removes underline from links */
-  transition: color 0.3s ease; /* Smooth transition for hover effect */
-}
-
-/* Author Name Styling */
-.content p {
-  color: #333; /* Dark grey for text for readability */
-  margin-top: 5px; /* Spacing between title and authors */
-}
-
-
-@keyframes containerFadeIn {
-  to {
-    opacity: 1; /* End with the container fully visible */
-    transform: translateY(0); /* Move to final position */
-  }
-}
-
-/* Year Label Styling for Clear Visibility */
-.time-label {
-  width: auto; /* Auto width based on content */
-  padding: 5px 10px; /* Adjust padding */
-  background-color: #007bff; /* Background color for visibility */
-  color: white; /* Text color for contrast */
-  font-weight: bold;
-  font-size: 16px; /* Adjusted font size for clarity */
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  border-radius: 4px; /* Rounded corners for a modern look */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Shadow for depth */
-  z-index: 2; /* Ensure it's above the timeline */
-}
-
-@media screen and (max-width: 768px) {
-  /* Adjustments for better readability and layout on smaller screens */
-  .category-list, .papers-display, .timeline {
-    width: 100%; /* Ensures full width */
-    padding: 20px 10px; /* Adjust padding for consistency */
-    margin-bottom: 0px; /* Reduces bottom margin to lessen the space between elements */
-    border: none; /* Keeps the styling consistent */
-  }
-
-  /* Ensures vertical stacking for a clean layout */
-  .main-content, .papers-display {
-    flex-direction: column;
-  }
-
-  .container {
-    width: 100%; /* Uses full width for better space utilization */
-    margin-bottom: 5px; /* Adjusts spacing between timeline entries */
-    left: auto;
-    right: auto;
-  }
-
-  .timeline::after, .container::after, .container.left::after, .container.right::after {
-    display: none;
-  }
-
-  .timeline {
-    overflow-y: auto; /* Enables vertical scrolling */
-    max-height: 70vh; /* Limits the height to a percentage of the viewport height */
-  }
-
-  .content {
-    box-shadow: none; /* Opt for a simpler, flatter look */
-    border: 1px solid #ddd; /* Subtle border for definition */
-    margin: 5px 0; /* Margin to separate entries */
-    border-radius: 4px; /* Slight rounding of corners */
-  }
-
-  .time-label {
-    display: none;
-  }
-
+.paper-year {
+  display: block; /* Display year on its own line */
+  margin-top: 10px; /* Space between authors and year */
+  font-weight: bold; /* Make the year stand out */
 }
 
 .team-section {
