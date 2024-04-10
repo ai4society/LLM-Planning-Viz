@@ -22,7 +22,7 @@ We welcome contributions to expand and refine our categorization. To add papers 
 
 Below is a flowchart that outlines the process from submitting your contribution via the Google Form to seeing it displayed on the website:
 
-![Contribution Process](./flowchart/Decision_Flow.png)
+![Contribution Process](./flowchart/Decision_Flow.gif)
 
 ## Support and Contact
 For any queries or feedback, feel free to reach out to vishalp@mailbox.sc.edu.
