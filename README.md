@@ -8,14 +8,14 @@ Our work identifies eight distinct categories where LLMs are applied in the fiel
 
 | Category               | Description                                                                                           |
 |------------------------|-------------------------------------------------------------------------------------------------------|
-| :globe_with_meridians: **Language Translation** | Translates natural language into structured planning languages (e.g., PDDL) and vice versa.           |
-| :straight_ruler: **Plan Generation**      | Directly generates plans or strategies using LLMs.                                                    |
-| :building_construction: **Model Construction**   | Uses LLMs to build or refine world and domain models for planning.                                    |
-| :people_holding_hands: **Multi-agent Planning** | Enhances coordination and strategy among multiple agents.                                             |
-| :repeat: **Interactive Planning** | Involves interactive, iterative planning processes with dynamic inputs.                               |
-| :chart_with_upwards_trend: **Heuristics Optimization** | Improves planning efficiency by optimizing heuristics.                                                |
-| :hammer_and_wrench: **Tool Integration**     | Integrates LLMs with other systems like planners and theorem provers.                                 |
-| :brain: **Brain-Inspired Planning** | Develops LLM architectures inspired by cognitive processes to enhance planning capabilities.         |
+| :globe_with_meridians: **Language Translation** | Involves converting natural language into structured planning languages or formats like PDDL, enhancing the interface between human linguistic input and machine-understandable planning directives.           |
+| :straight_ruler: **Plan Generation**      | Entails the creation of plans or strategies directly by LLMs, focusing on generating actionable sequences or decision-making processes.                                                    |
+| :building_construction: **Model Construction**   | Utilizes LLMs to construct or refine world and domain models essential for accurate and effective planning.                                    |
+| :people_holding_hands: **Multi-agent Planning** | Focuses on scenarios involving multiple agents, where LLMs contribute to coordination and cooperative strategy development.                                             |
+| :repeat: **Interactive Planning** | Centers on scenarios requiring iterative feedback or interactive planning with users, external verifiers, or the environment, emphasizing the adaptability of LLMs to dynamic inputs.                               |
+| :chart_with_upwards_trend: **Heuristics Optimization** | Applies LLMs in optimizing planning processes through refining existing plans or providing heuristic assistance to symbolic planners.                                                |
+| :hammer_and_wrench: **Tool Integration**     | Encompasses studies where LLMs act as central orchestrators or coordinators in a tool ecosystem, interfacing with planners, theorem provers, and other systems.                                 |
+| :brain: **Brain-Inspired Planning** | Covers research focusing on LLM architectures inspired by neurological or cognitive processes, particularly to enhance planning capabilities.         |
 
 ## How to Contribute
 We welcome contributions to expand and refine our categorization. To add papers to the visualization, please fill out this form: [Google Forms Link](#)
