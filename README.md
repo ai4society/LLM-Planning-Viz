@@ -35,6 +35,19 @@ For any queries or feedback, feel free to reach out to vishalp@mailbox.sc.edu.
 - [Lior Horesh](https://www.linkedin.com/in/lior-horesh-7365a46)
 - [Amit Sheth](https://www.linkedin.com/in/amitsheth/)
 
+## Citation for the Tool
+
+If you use the visualization tool in your work, please cite it as follows:
+
+```
+@article{pallagani2024prospects,
+  title={On the prospects of incorporating large language models (llms) in automated planning and scheduling (aps)},
+  author={Pallagani, Vishal and Roy, Kaushik and Muppasani, Bharath and Fabiano, Francesco and Loreggia, Andrea and Murugesan, Keerthiram and Srivastava, Biplav and Rossi, Francesca and Horesh, Lior and Sheth, Amit},
+  journal={arXiv preprint arXiv:2401.02500},
+  year={2024}
+}
+```
+
 ---
 
 We look forward to your contributions and hope this tool aids researchers and practitioners alike in navigating the expanding landscape of LLMs in planning.
