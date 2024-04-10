@@ -6,14 +6,16 @@ The field of Large Language Models (LLMs) and Planning has expanded rapidly, wit
 ## Categories of LLM Use in Planning
 Our work identifies eight distinct categories where LLMs are applied in the field of planning:
 
-- **Language Translation**: Translates natural language into structured planning languages (e.g., PDDL) and vice versa.
-- **Plan Generation**: Directly generates plans or strategies using LLMs.
-- **Model Construction**: Uses LLMs to build or refine world and domain models for planning.
-- **Multi-agent Planning**: Enhances coordination and strategy among multiple agents.
-- **Interactive Planning**: Involves interactive, iterative planning processes with dynamic inputs.
-- **Heuristics Optimization**: Improves planning efficiency by optimizing heuristics.
-- **Tool Integration**: Integrates LLMs with other systems like planners and theorem provers.
-- **Brain-Inspired Planning**: Develops LLM architectures inspired by cognitive processes to enhance planning capabilities.
+| Category               | Description                                                                                           |
+|------------------------|-------------------------------------------------------------------------------------------------------|
+| :globe_with_meridians: **Language Translation** | Translates natural language into structured planning languages (e.g., PDDL) and vice versa.           |
+| :straight_ruler: **Plan Generation**      | Directly generates plans or strategies using LLMs.                                                    |
+| :building_construction: **Model Construction**   | Uses LLMs to build or refine world and domain models for planning.                                    |
+| :people_holding_hands: **Multi-agent Planning** | Enhances coordination and strategy among multiple agents.                                             |
+| :repeat: **Interactive Planning** | Involves interactive, iterative planning processes with dynamic inputs.                               |
+| :chart_with_upwards_trend: **Heuristics Optimization** | Improves planning efficiency by optimizing heuristics.                                                |
+| :tools: **Tool Integration**     | Integrates LLMs with other systems like planners and theorem provers.                                 |
+| :brain: **Brain-Inspired Planning** | Develops LLM architectures inspired by cognitive processes to enhance planning capabilities.         |
 
 ## How to Contribute
 We welcome contributions to expand and refine our categorization. To add papers to the visualization, please fill out this form: [Google Forms Link](#)
