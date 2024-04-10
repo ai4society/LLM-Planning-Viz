@@ -14,7 +14,7 @@ Our work identifies eight distinct categories where LLMs are applied in the fiel
 | :people_holding_hands: **Multi-agent Planning** | Enhances coordination and strategy among multiple agents.                                             |
 | :repeat: **Interactive Planning** | Involves interactive, iterative planning processes with dynamic inputs.                               |
 | :chart_with_upwards_trend: **Heuristics Optimization** | Improves planning efficiency by optimizing heuristics.                                                |
-| :tools: **Tool Integration**     | Integrates LLMs with other systems like planners and theorem provers.                                 |
+| :hammer_and_wrench: **Tool Integration**     | Integrates LLMs with other systems like planners and theorem provers.                                 |
 | :brain: **Brain-Inspired Planning** | Develops LLM architectures inspired by cognitive processes to enhance planning capabilities.         |
 
 ## How to Contribute
