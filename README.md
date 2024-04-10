@@ -18,7 +18,7 @@ Our work identifies eight distinct categories where LLMs are applied in the fiel
 | :brain: **Brain-Inspired Planning** | Covers research focusing on LLM architectures inspired by neurological or cognitive processes, particularly to enhance planning capabilities.         |
 
 ## How to Contribute
-We welcome contributions to expand and refine our categorization. To add papers to the visualization, please fill out this form: [Google Forms Link](#)
+We welcome contributions to expand and refine our categorization. To add papers to the visualization, please fill out this form: [Google Forms Link](https://forms.gle/gEfNaetfyVQFpMFfA)
 
 ---
 
