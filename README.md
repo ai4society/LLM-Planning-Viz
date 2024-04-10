@@ -20,6 +20,21 @@ Our work identifies eight distinct categories where LLMs are applied in the fiel
 ## How to Contribute
 We welcome contributions to expand and refine our categorization. To add papers to the visualization, please fill out this form: [Google Forms Link](https://forms.gle/gEfNaetfyVQFpMFfA)
 
+## Support and Contact
+For any queries or feedback, feel free to reach out to vishalp@mailbox.sc.edu.
+
+## Collaborators
+- [Vishal Pallagani](https://www.linkedin.com/in/vishalpallagani/)
+- [Bharath Muppasani](https://www.linkedin.com/in/bharath-9798/)
+- [Kaushik Roy](https://www.linkedin.com/in/kaushik-roy-b8a323ab/)
+- [Francesco Fabiano](https://www.linkedin.com/in/francesco-fabiano-97819a166/)
+- [Andrea Loreggia](https://www.linkedin.com/in/andrea-loreggia/)
+- [Keerthiram Murugesan](https://www.linkedin.com/in/keerthiram)
+- [Biplav Srivastava](https://www.linkedin.com/in/biplav-srivastava)
+- [Francesca Rossi](https://www.linkedin.com/in/francesca-rossi-34b8b95)
+- [Lior Horesh](https://www.linkedin.com/in/lior-horesh-7365a46)
+- [Amit Sheth](https://www.linkedin.com/in/amitsheth/)
+
 ---
 
 We look forward to your contributions and hope this tool aids researchers and practitioners alike in navigating the expanding landscape of LLMs in planning.
