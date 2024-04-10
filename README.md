@@ -20,30 +20,6 @@ Our work identifies eight distinct categories where LLMs are applied in the fiel
 ## How to Contribute
 We welcome contributions to expand and refine our categorization. To add papers to the visualization, please fill out this form: [Google Forms Link](#)
 
-## Installation
-Details on how to install or access the tool would be helpful here, including any dependencies or requirements.
-
-## Usage
-Provide instructions on how to use the tool, with examples or a step-by-step guide if applicable.
-
-## Contributing
-Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Project Status and Roadmap
-Describe the current status of the project and any planned features or updates.
-
-## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
-## Support and Contact
-For support or inquiries, reach out to us via [Insert Contact Information].
-
-## Acknowledgments
-Mention any collaborators, funding sources, or any other acknowledgments here.
-
-## Screenshots and Demos
-Include screenshots of the tool in action or links to demos to help new users understand its capabilities.
-
 ---
 
 We look forward to your contributions and hope this tool aids researchers and practitioners alike in navigating the expanding landscape of LLMs in planning.
