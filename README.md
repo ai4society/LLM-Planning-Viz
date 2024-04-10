@@ -20,6 +20,10 @@ Our work identifies eight distinct categories where LLMs are applied in the fiel
 ## How to Contribute
 We welcome contributions to expand and refine our categorization. To add papers to the visualization, please fill out this form: [Google Forms Link](https://forms.gle/gEfNaetfyVQFpMFfA)
 
+Below is a flowchart that outlines the process from submitting your contribution via the Google Form to seeing it displayed on the website:
+
+![Contribution Process](./flowchart/Decision_Flow.png)
+
 ## Support and Contact
 For any queries or feedback, feel free to reach out to vishalp@mailbox.sc.edu.
 
@@ -40,10 +44,10 @@ For any queries or feedback, feel free to reach out to vishalp@mailbox.sc.edu.
 If you use the visualization tool in your work, please cite it as follows:
 
 ```
-@article{pallagani2024prospects,
+@inproceedings{pallagani2024prospects,
   title={On the prospects of incorporating large language models (llms) in automated planning and scheduling (aps)},
   author={Pallagani, Vishal and Roy, Kaushik and Muppasani, Bharath and Fabiano, Francesco and Loreggia, Andrea and Murugesan, Keerthiram and Srivastava, Biplav and Rossi, Francesca and Horesh, Lior and Sheth, Amit},
-  journal={arXiv preprint arXiv:2401.02500},
+  booktitle={34th International Conference on Automated Planning and Scheduling},
   year={2024}
 }
 ```
