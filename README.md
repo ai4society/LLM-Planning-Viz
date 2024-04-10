@@ -1,7 +1,7 @@
 # Visualization Tool for LLM-based Planning Literature
 
 ## Overview
-The field of Large Language Models (LLMs) and Planning has expanded rapidly, with an 850% increase in research papers from 2022 to 2023, and continues to grow in 2024. This visualization tool was developed to centralize and clarify the burgeoning literature on this topic. Originating from our paper presented at ICAPS 2024, *"[On the Prospects of Incorporating Large Language Models (LLMs) in Automated Planning and Scheduling (APS)](https://arxiv.org/abs/2401.02500)"*, our repository aims to continually update and refine the categorization of relevant research.
+The field of Large Language Models (LLMs) and Planning has expanded rapidly, with an 850% increase in research papers from 2022 to 2023, and continues to grow in 2024. This visualization tool was developed to centralize and categorize the exponentially growing literature on this topic. Originating from our paper presented at ICAPS 2024, *"[On the Prospects of Incorporating Large Language Models (LLMs) in Automated Planning and Scheduling (APS)](https://arxiv.org/abs/2401.02500)"*, our repository aims to update and refine the categorization of relevant research continually with the help of crowd-sourcing.
 
 ## Categories of LLM Use in Planning
 Our work identifies eight distinct categories where LLMs are applied in the field of planning:
