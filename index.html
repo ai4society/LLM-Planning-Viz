@@ -8,70 +8,170 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <div class="wrapper">
         <header>
             <nav>
                 <a href="#">Home</a>
                 <a href="team.html">Team</a>
+                <a href="leaderboard.html">Leaderboard</a>
                 <a href="contact.html">Contact</a>
             </nav>
             <div class="header-content">
-                <h1>On the Prospects of Incorporating Large Language Models in Automated Planning and Scheduling <span class="badge">Accepted at ICAPS 2024</span></h1>
+                <h1>Taxonomy On Incorporating Large Language Models in Planning
+                    <span class="badge">Accepted at ICAPS 2024, 2025</span>
+                </h1>
                 <p>Welcome to the interactive visualization of the taxonomy of recent research in the intersection of LLMs and Planning.</p>
                 <a target="_blank" href="https://arxiv.org/abs/2401.02500" class="paper-link">Read the Full Paper</a>
             </div>
         </header>
+
+        <!-- Year Selector -->
+        <div class="year-selector">
+            <button id="year-2024" class="year-btn active" onclick="switchYear('2024')">2024</button>
+            <button id="year-2025" class="year-btn" onclick="switchYear('2025')">2025</button>
+        </div>
+
         <div class="main-content">
             <aside class="category-list">
                 <h2>LLMs in Automated Planning and Scheduling</h2>
-                <ul>
-                    <li><a href="#" data-category="language-translation">Language Translation</a></li>
-                    <li><a href="#" data-category="plan-generation">Plan Generation</a></li>
-                    <li><a href="#" data-category="model-construction">Model Construction</a></li>
-                    <li><a href="#" data-category="multiagent-planning">Multiagent Planning</a></li>
-                    <li><a href="#" data-category="interactive-planning">Interactive Planning</a></li>
-                    <li><a href="#" data-category="heuristics-optimization">Heuristics Optimization</a></li>
-                    <li><a href="#" data-category="tool-integration">Tool Integration</a></li>
-                    <li><a href="#" data-category="brain-inspired-planning">Brain-inspired Planning</a></li>
+                <ul id="category-list">
+                    <!-- Categories will be loaded dynamically based on year -->
                 </ul>
             </aside>
+
             <section class="papers-display">
                 <h2>Selected Category Papers</h2>
                 <div class="category-description">
                     <p id="category-description-text"></p>
-                  </div>
-                <div id="papers-container">
-                    <!-- Papers will be loaded here based on the category selection -->
+                </div>
+                <div id="papers-container" class="papers-list">
+                    <!-- Papers will load here -->
                 </div>
             </section>
         </div>
+
         <div class="popup-message" id="popupMessage">
             <strong>Note:</strong> Some paper titles might have been updated from the time of adding to the visualization; however, the links still point to the same paper.
             <button class="popup-close" onclick="closePopup()">&times;</button>
         </div>     
     </div>
 
-<script src="papers-data.js"></script>
-<script src="script.js"></script>
-<script>
-    document.querySelectorAll('.category-list ul li a').forEach(item => {
-  item.addEventListener('click', function(e) {
-    // Prevent default link action
-    e.preventDefault();
+    <script src="papers-data.js"></script>
+    <script src="papers-data-new.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        const categories2024 = [
+            { name: "Language Translation", id: "language-translation" },
+            { name: "Plan Generation", id: "plan-generation" },
+            { name: "Model Construction", id: "model-construction" },
+            { name: "Multiagent Planning", id: "multiagent-planning" },
+            { name: "Interactive Planning", id: "interactive-planning" },
+            { name: "Heuristics Optimization", id: "heuristics-optimization" },
+            { name: "Tool Integration", id: "tool-integration" },
+            { name: "Brain-inspired Planning", id: "brain-inspired-planning" }
+        ];
+    
+        const categories2025 = [
+            ...categories2024,
+            { name: "Goal Decomposition", id: "goal-decomposition" },
+            { name: "Replanning", id: "replanning" }
+        ];
+    
+        let currentYear = '2024'; // default year
+    
+        function loadCategories(year) {
+            const categoryList = document.getElementById('category-list');
+            categoryList.innerHTML = '';
 
-    // Remove 'active' class from all items
-    document.querySelectorAll('.category-list ul li a').forEach(link => {
-      link.classList.remove('active');
-    });
+            const categories = year === '2025' ? categories2025 : categories2024;
+            categories.forEach(cat => {
+                const li = document.createElement('li');
+                let extraClass = "";
 
-    // Add 'active' class to clicked item
-    this.classList.add('active');
-  });
-});
-function closePopup() {
-    document.getElementById('popupMessage').style.display = 'none';
-}
-</script>
+                // Highlight new categories in 2025
+                if (year === '2025' && (cat.id === 'goal-decomposition' || cat.id === 'replanning')) {
+                    extraClass = " new-category";
+                }
+
+                li.innerHTML = `<a href="#" data-category="${cat.id}" class="${extraClass.trim()}">${cat.name}</a>`;
+                categoryList.appendChild(li);
+            });
+
+            activateCategoryClicks();
+        }
+    
+        function activateCategoryClicks() {
+            document.querySelectorAll('.category-list ul li a').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelectorAll('.category-list ul li a').forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                    filterPapersByCategory(this.dataset.category);
+                });
+            });
+        }
+    
+        function filterPapersByCategory(category) {
+            const papers = currentYear === '2024' ? papersData : papersDataNew;
+            const papersContainer = document.getElementById('papers-container');
+            const descriptionText = document.getElementById('category-description-text');
+
+            papersContainer.innerHTML = '';
+            descriptionText.textContent = `Displaying papers under "${category.replace('-', ' ')}"`;
+
+            const filteredPapers = papers.filter(p => p.category === category);
+
+            // Build a quick lookup for old papers if in 2025
+            const oldTitles = new Set();
+            if (currentYear === '2025') {
+                papersData.forEach(p => {
+                    oldTitles.add(p.title.trim().toLowerCase());
+                });
+            }
+
+            filteredPapers.forEach(paper => {
+                const entryDiv = document.createElement('div');
+                entryDiv.classList.add('paper-entry');
+
+                const contentDiv = document.createElement('div');
+                contentDiv.classList.add('paper-content');
+
+                const isNew = currentYear === '2025' && !oldTitles.has(paper.title.trim().toLowerCase());
+
+                contentDiv.innerHTML = `
+                    <h4>
+                        <a href="${paper.link}" target="_blank">${paper.title}</a>
+                        ${isNew ? '<span class="new-paper-badge">NEW</span>' : ''}
+                    </h4>
+                    <p>${paper.authors}</p>
+                    <span class="paper-year">${paper.year}</span>
+                `;
+
+                entryDiv.appendChild(contentDiv);
+                papersContainer.appendChild(entryDiv);
+            });
+        }
+    
+        function switchYear(selectedYear) {
+            currentYear = selectedYear;
+            document.querySelectorAll('.year-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('year-' + selectedYear).classList.add('active');
+    
+            loadCategories(selectedYear);
+    
+            // Clear the papers container and description
+            document.getElementById('papers-container').innerHTML = '';
+            document.getElementById('category-description-text').textContent = '';
+        }
+    
+        function closePopup() {
+            document.getElementById('popupMessage').style.display = 'none';
+        }
+    
+        // Initial load
+        loadCategories('2024');
+    </script>
+    
 </body>
 </html>
