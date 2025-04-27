@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard | LLM-Planning</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="wrapper">
+        <header>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="team.html">Team</a>
+                <a href="leaderboard.html">Leaderboard</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <div class="content">
+            <h1 class="page-title">Leaderboard</h1>
+
+            <div class="leaderboard-container">
+                <table class="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Classifier Name</th>
+                            <th>Single-Label Setup<br><em>D₁</em></th>
+                            <th>Single-Label Setup<br><em>D₂</em></th>
+                            <th>Multi-Label Setup<br><em>D₁</em></th>
+                            <th>Multi-Label Setup<br><em>D₂</em></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SVM</td>
+                            <td>0.222</td>
+                            <td>0.346</td>
+                            <td>0.123</td>
+                            <td>0.280</td>
+                        </tr>
+                        <tr>
+                            <td>DT</td>
+                            <td>0.124</td>
+                            <td>0.258</td>
+                            <td>0.233</td>
+                            <td>0.349</td>
+                        </tr>
+                        <tr>
+                            <td>RF</td>
+                            <td>0.117</td>
+                            <td>0.213</td>
+                            <td>0.044</td>
+                            <td>0.215</td>
+                        </tr>
+                        <tr>
+                            <td>BERT</td>
+                            <td>0.049</td>
+                            <td>0.043</td>
+                            <td>0.102</td>
+                            <td>0.069</td>
+                        </tr>
+                        <tr>
+                            <td>SciBERT</td>
+                            <td>0.000</td>
+                            <td>0.013</td>
+                            <td>0.102</td>
+                            <td>0.150</td>
+                        </tr>
+                        <tr class="leaderboard-highlight">
+                            <td>Human-augmented</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td><strong>0.83</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
