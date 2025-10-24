@@ -1,0 +1,556 @@
+/* Reset and base styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  /* overflow: scroll; */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:first baseline;
+}
+
+/* Navigation and Header */
+header {
+  background: #007bff;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  /* height: 30%; */
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease-in-out;
+}
+
+header nav a:hover,
+header nav a:focus { /* Added focus for accessibility */
+  color: #cce;
+  outline: none; /* Optionally remove outline and replace with a more visually appealing focus indicator */
+}
+
+.header-content h1, .header-content p {
+  margin: 20px 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Badge Styling for a Gold Bar Effect */
+.badge {
+  position: relative;
+  background: linear-gradient(145deg, #ffd700 20%, #ffdf00 40%, #ffdd00 50%, #ffdf00 60%, #ffd700 80%);
+  color: #004085; /* Adjusted color for better visibility on gold */
+  padding: 0px 3px;
+  border-radius: 2px;
+  font-size: 0.4em;
+  vertical-align: super;
+  margin-left: 4px;
+  display: inline-block;
+  box-shadow: inset 0 0 4px #c79300; /* Inner shadow for depth */
+  border: 1px solid #c79300; /* Slight border for definition */
+  overflow: hidden; /* Ensures pseudo-elements don't overflow the badge's boundaries */
+}
+
+/* Inner Glow Effect */
+.badge::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 2px; /* Match the badge's border-radius */
+  background: linear-gradient(45deg, rgba(255, 244, 214, 0.7), rgba(255, 255, 255, 0.7), rgba(255, 244, 214, 0.7));
+  opacity: 0.7;
+  filter: blur(3px);
+  z-index: -1;
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.7; transform: scale(1); filter: blur(3px); }
+  50% { opacity: 0.9; transform: scale(1.05); filter: blur(5px); }
+}
+
+/* External Shine Effect */
+.badge::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  animation: shine 4s linear infinite;
+  border-radius: 2px;
+}
+
+@keyframes shine {
+  from { transform: rotate(0deg) translateX(-50%); }
+  to { transform: rotate(360deg) translateX(-50%); }
+}
+
+.paper-link {
+  display: inline-block;
+  background-color: #007bff; /* Primary color for consistency */
+  color: #ffffff; /* White text for contrast */
+  padding: 8px 16px; /* Reduced padding for a smaller button */
+  border-radius: 20px; /* Adjusted border-radius for aesthetic consistency with the smaller size */
+  font-weight: 600; /* Bold text */
+  font-size: 0.9em; /* Optionally adjust font size for better fit */
+  text-decoration: none; /* Removes underline from the link */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Defined shadow for depth */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.paper-link:hover, .paper-link:focus {
+  background-color: #0056b3; /* Darker shade on hover/focus for interaction feedback */
+  color: #ffffff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Larger shadow for a "lifting" effect */
+  transform: translateY(-2px); /* Slightly raises the button */
+  outline: none; /* Consider accessibility alternatives */
+}
+
+.paper-link:active {
+  background-color: #004494; /* Even darker for the active state */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Smaller shadow to simulate "pressing" down */
+  transform: translateY(1px); /* Moves the button down */
+}
+
+.main-content {
+  display: flex;
+  padding: 20px 50px;
+}
+
+/* Enhanced Category List Styling */
+.category-list {
+  flex: 1;
+  padding: 0 30px;
+  max-width: 300px; /* Limit width for better readability */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center category names */
+}
+
+.category-list h2 {
+  margin-bottom: 30px;
+  color: #2c3e50; /* Darker shade for contrast */
+  font-size: 24px; /* Slightly larger for emphasis */
+  font-weight: bold; /* Make the header bold */
+}
+
+.category-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%; /* Ensure the list fills the container */
+}
+
+.category-list ul li {
+  margin-bottom: 15px;
+  width: 100%; /* Ensure the list items fill the container */
+}
+
+.category-list ul li a {
+  display: flex; /* Use flex to easily center text */
+  justify-content: center; /* Center text horizontally */
+  align-items: center; /* Center text vertically */
+  text-decoration: none;
+  color: #ffffff; /* White text for better readability */
+  background-image: linear-gradient(to right, #ff5f6d, #ffc371); /* Updated gradient for a vibrant look */
+  padding: 10px 20px; /* Increased padding for a more substantial touch area */
+  border-radius: 25px; /* More pronounced rounded corners for a softer look */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+  font-weight: bold; /* Make category names bold */
+}
+
+.category-list ul li a:hover, .category-list ul li a:focus {
+  background-image: linear-gradient(to right, #ffc371, #ff5f6d); /* Reverse gradient for interactive effect */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Slightly larger shadow for a "pop" effect */
+  transform: translateY(-3px); /* Subtle lift effect on hover */
+}
+
+/* Active State for Category Items */
+.category-list ul li a.active {
+  transform: scale(0.95); /* Slightly reduce size to simulate pressing */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Increase shadow for depth */
+  background-image: linear-gradient(to right, #ff5f6d, #ffc371); /* Keep the gradient consistent or change as desired */
+}
+
+.category-list ul li a:active {
+  /* Immediate feedback on click, before active class is applied */
+  transform: scale(0.95); /* Mimic pressing effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.new-category {
+  animation: soft-glow 2s infinite alternate;
+  border: 2px solid #A18CD1; /* soft purple */
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+@keyframes modern-violet-glow {
+  0% {
+    box-shadow: 0 0 4px rgba(192, 132, 252, 0.4), 0 0 8px rgba(124, 58, 237, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 8px rgba(192, 132, 252, 0.7), 0 0 16px rgba(124, 58, 237, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 4px rgba(192, 132, 252, 0.4), 0 0 8px rgba(124, 58, 237, 0.4);
+  }
+}
+
+.new-category {
+  animation: modern-violet-glow 3.5s infinite alternate;
+  border: 2px solid #c084fc; /* Light neon violet */
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.new-paper-badge {
+  background: linear-gradient(to right, #c084fc, #7c3aed); /* Violet gradient */
+  color: white;
+  font-size: 0.65rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  margin-left: 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  animation: soft-glow-new-paper 3s infinite alternate ease-in-out;
+}
+
+/* subtle breathing animation for the badge */
+@keyframes soft-glow-new-paper {
+  0% {
+    box-shadow: 0 0 4px rgba(192, 132, 252, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 8px rgba(124, 58, 237, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 4px rgba(192, 132, 252, 0.5);
+  }
+}
+
+
+.papers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Adjust space between paper entries */
+}
+
+.papers-list .paper-entry:first-child {
+  margin-top: 20px; /* Adds space above the first paper entry */
+}
+
+.paper-entry {
+  background-color: #f9f9f9; /* Light background for each entry */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Padding around the content */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions for hover effects */
+}
+
+.paper-entry:hover {
+  transform: translateY(-5px); /* Slight raise effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.paper-content h4 a {
+  color: #007bff; /* Keep the link color for consistency */
+  text-decoration: none; /* Removes underline */
+}
+
+.paper-content p {
+  color: #333; /* Maintain readability */
+}
+
+.paper-year {
+  display: block; /* Display year on its own line */
+  margin-top: 10px; /* Space between authors and year */
+  font-weight: bold; /* Make the year stand out */
+}
+
+.team-section {
+  text-align: center;
+  padding: 50px;
+  background-color: #f4f4f4; /* Light grey background */
+}
+
+.team-section h2 {
+  margin-bottom: 30px; /* Adjust this value as needed */
+}
+
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px; /* Adjust based on your preference */
+}
+
+.team-member {
+  width: 200px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  position: relative; /* Needed for absolute positioning of the pseudo-element */
+  margin-bottom: 30px; /* Ensure there's space below for the pseudo-element */
+  overflow: hidden; /* Ensures the pseudo-element's curvature blends into the card */
+}
+
+.team-member::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* Slightly overlaps the bottom of the card */
+  left: 0;
+  width: 100%;
+  height: 10px; /* Gives enough space for the gradient and curvature */
+  background: linear-gradient(
+    270deg, 
+    #ff5f6d, #ffc371, #24C6DC, #514A9D, 
+    #FF5F6D, #FFC371, #24C6DC, #514A9D
+  ); /* Repeating the colors for a continuous effect */
+  background-size: 400% 100%;
+  animation: moveStreak 30s ease infinite;
+  border-radius: 5px 5px 0 0; /* Curved to blend with the card */
+}
+
+@keyframes moveStreak {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.team-member img {
+  width: 100px; /* Adjust based on your preference */
+  height: 100px; /* Keeping width and height the same for a circle */
+  border-radius: 50%; /* Creates the circle shape */
+  object-fit: cover; /* Ensures the image covers the space well */
+  margin-bottom: 15px; /* Space between the image and the text */
+}
+
+.team-member h3, .team-member p {
+  margin: 5px 0; /* Adjust the spacing as needed */
+}
+
+.team-member:hover {
+  transform: scale(1.05); /* Slight increase in size on hover for effect */
+}
+
+.contact-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #f0f4f8;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.contact-section h2, .contact-section h3 {
+  color: #333;
+}
+
+.contact-section .intro, .contact-section p {
+  color: #555;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.contact-methods {
+  display: flex;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.contact-methods > div {
+  flex: 1;
+  background: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.contact-methods h3 {
+  margin-top: 0;
+}
+
+.email a, .github a {
+  color: #007bff; /* A pleasant, clickable blue. Adjust color as needed */
+  font-weight: bold; /* Makes the text slightly bolder */
+  text-decoration: none; /* Removes underline */
+  padding: 2px 0; /* Minimal padding to not disrupt line height much */
+  border-bottom: 2px solid transparent; /* Invisible border for a smooth transition on hover */
+  transition: border-color 0.3s ease, color 0.3s ease; /* Smooth transitions for color and border */
+}
+
+.email a:hover, .github a:hover {
+  color: #0056b3; /* A darker shade of blue for hover state */
+  border-color: #0056b3; /* Makes the underline appear on hover */
+}
+
+.github-link {
+  display: inline-block;
+  background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 25px;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease-in-out;
+}
+
+.github-link:hover {
+  transform: scale(1.05);
+}
+
+.follow-us {
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.github-link {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.popup-message {
+  position: fixed;
+  bottom: 20px; /* Adjust as needed to position above the footer */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f8f9fa;
+  color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  z-index: 1000; /* Ensures it's above other content */
+  max-width: 80%;
+  text-align: center;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  border: none;
+  background: none;
+  color: #333;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.year-selector {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.year-btn {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.year-btn.active {
+  background-color: #0077cc;
+  color: #fff;
+}
+
+.year-btn:hover {
+  background-color: #005fa3;
+  color: #fff;
+}
+
+.leaderboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+.leaderboard-table {
+  width: 90%;
+  max-width: 900px; /* Max width so it doesn't stretch full screen */
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.leaderboard-table th, .leaderboard-table td {
+  padding: 15px 20px;
+  text-align: center;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.leaderboard-table th {
+  background-color: #007bff;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.leaderboard-table tr:last-child td {
+  border-bottom: none; /* Remove bottom border from last row */
+}
+
+.leaderboard-highlight {
+  background-color: #ffe066; /* Light gold */
+  font-weight: bold;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-weight: bold;
+}
