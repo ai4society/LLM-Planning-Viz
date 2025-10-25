@@ -1,0 +1,45 @@
+2025-10-25 12:02:23,895 - INFO - Starting arXiv paper extraction
+2025-10-25 12:02:23,895 - INFO - Executing query: cat:cs.AI AND ("large language models" OR "LLMs" OR "GPT" OR "BERT" OR transformers)
+2025-10-25 12:02:23,895 - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=cat%3Acs.AI+AND+%28%22large+language+models%22+OR+%22LLMs%22+OR+%22GPT%22+OR+%22BERT%22+OR+transformers%29&id_list=&sortBy=relevance&sortOrder=descending&start=0&max_results=100
+2025-10-25 12:02:24,246 - INFO - Got first page: 100 of 42838 total results
+2025-10-25 12:02:24,248 - INFO - Sleeping: 2.900346 seconds
+2025-10-25 12:02:27,151 - INFO - Requesting page (first: False, try: 0): https://export.arxiv.org/api/query?search_query=cat%3Acs.AI+AND+%28%22large+language+models%22+OR+%22LLMs%22+OR+%22GPT%22+OR+%22BERT%22+OR+transformers%29&id_list=&sortBy=relevance&sortOrder=descending&start=100&max_results=100
+2025-10-25 12:02:27,206 - INFO - Sleeping: 2.996818 seconds
+2025-10-25 12:02:30,209 - INFO - Requesting page (first: False, try: 1): https://export.arxiv.org/api/query?search_query=cat%3Acs.AI+AND+%28%22large+language+models%22+OR+%22LLMs%22+OR+%22GPT%22+OR+%22BERT%22+OR+transformers%29&id_list=&sortBy=relevance&sortOrder=descending&start=100&max_results=100
+2025-10-25 12:02:30,260 - INFO - Sleeping: 2.997015 seconds
+2025-10-25 12:02:33,260 - INFO - Requesting page (first: False, try: 2): https://export.arxiv.org/api/query?search_query=cat%3Acs.AI+AND+%28%22large+language+models%22+OR+%22LLMs%22+OR+%22GPT%22+OR+%22BERT%22+OR+transformers%29&id_list=&sortBy=relevance&sortOrder=descending&start=100&max_results=100
+2025-10-25 12:02:33,310 - INFO - Sleeping: 2.997543 seconds
+2025-10-25 12:02:36,313 - INFO - Requesting page (first: False, try: 3): https://export.arxiv.org/api/query?search_query=cat%3Acs.AI+AND+%28%22large+language+models%22+OR+%22LLMs%22+OR+%22GPT%22+OR+%22BERT%22+OR+transformers%29&id_list=&sortBy=relevance&sortOrder=descending&start=100&max_results=100
+2025-10-25 12:02:36,362 - ERROR - Error executing query 'cat:cs.AI AND ("large language models" OR "LLMs" OR "GPT" OR "BERT" OR transformers)': Page of results was unexpectedly empty (https://export.arxiv.org/api/query?search_query=cat%3Acs.AI+AND+%28%22large+language+models%22+OR+%22LLMs%22+OR+%22GPT%22+OR+%22BERT%22+OR+transformers%29&id_list=&sortBy=relevance&sortOrder=descending&start=100&max_results=100)
+2025-10-25 12:02:36,363 - INFO - Executing query: cat:cs.AI AND ("automated planning" OR "symbolic planning" OR "neurosymbolic planning" OR "task planning" OR "AI planning")
+2025-10-25 12:02:36,364 - INFO - Sleeping: 2.994083 seconds
+2025-10-25 12:02:39,359 - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=cat%3Acs.AI+AND+%28%22automated+planning%22+OR+%22symbolic+planning%22+OR+%22neurosymbolic+planning%22+OR+%22task+planning%22+OR+%22AI+planning%22%29&id_list=&sortBy=relevance&sortOrder=descending&start=0&max_results=100
+2025-10-25 12:02:39,441 - INFO - Got first page: 3 of 663 total results
+2025-10-25 12:02:39,442 - INFO - Sleeping: 2.984641 seconds
+2025-10-25 12:02:42,432 - INFO - Requesting page (first: False, try: 0): https://export.arxiv.org/api/query?search_query=cat%3Acs.AI+AND+%28%22automated+planning%22+OR+%22symbolic+planning%22+OR+%22neurosymbolic+planning%22+OR+%22task+planning%22+OR+%22AI+planning%22%29&id_list=&sortBy=relevance&sortOrder=descending&start=3&max_results=100
+2025-10-25 12:02:42,575 - INFO - Sleeping: 2.910100 seconds
+2025-10-25 12:02:45,490 - INFO - Requesting page (first: False, try: 0): https://export.arxiv.org/api/query?search_query=cat%3Acs.AI+AND+%28%22automated+planning%22+OR+%22symbolic+planning%22+OR+%22neurosymbolic+planning%22+OR+%22task+planning%22+OR+%22AI+planning%22%29&id_list=&sortBy=relevance&sortOrder=descending&start=103&max_results=100
+2025-10-25 12:02:45,635 - INFO - Executing query: cat:cs.AI AND ("neural-symbolic" OR "neurosymbolic") AND planning
+2025-10-25 12:02:45,635 - INFO - Sleeping: 2.909553 seconds
+2025-10-25 12:02:48,549 - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=cat%3Acs.AI+AND+%28%22neural-symbolic%22+OR+%22neurosymbolic%22%29+AND+planning&id_list=&sortBy=relevance&sortOrder=descending&start=0&max_results=100
+2025-10-25 12:02:48,699 - INFO - Got first page: 24 of 24 total results
+2025-10-25 12:02:48,700 - INFO - Executing query: cat:cs.AI AND ("large language models" OR "LLMs" OR "GPT" OR "BERT" OR transformers) AND planning
+2025-10-25 12:02:48,701 - INFO - Sleeping: 2.952384 seconds
+2025-10-25 12:02:51,658 - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=cat%3Acs.AI+AND+%28%22large+language+models%22+OR+%22LLMs%22+OR+%22GPT%22+OR+%22BERT%22+OR+transformers%29+AND+planning&id_list=&sortBy=relevance&sortOrder=descending&start=0&max_results=100
+2025-10-25 12:02:51,904 - INFO - Got first page: 100 of 2476 total results
+2025-10-25 12:02:51,906 - INFO - Sleeping: 2.899054 seconds
+2025-10-25 12:02:54,811 - INFO - Requesting page (first: False, try: 0): https://export.arxiv.org/api/query?search_query=cat%3Acs.AI+AND+%28%22large+language+models%22+OR+%22LLMs%22+OR+%22GPT%22+OR+%22BERT%22+OR+transformers%29+AND+planning&id_list=&sortBy=relevance&sortOrder=descending&start=100&max_results=100
+2025-10-25 12:02:54,944 - INFO - Sleeping: 2.997246 seconds
+2025-10-25 12:02:57,942 - INFO - Requesting page (first: False, try: 1): https://export.arxiv.org/api/query?search_query=cat%3Acs.AI+AND+%28%22large+language+models%22+OR+%22LLMs%22+OR+%22GPT%22+OR+%22BERT%22+OR+transformers%29+AND+planning&id_list=&sortBy=relevance&sortOrder=descending&start=100&max_results=100
+2025-10-25 12:02:57,998 - INFO - Sleeping: 2.997190 seconds
+2025-10-25 12:03:00,999 - INFO - Requesting page (first: False, try: 2): https://export.arxiv.org/api/query?search_query=cat%3Acs.AI+AND+%28%22large+language+models%22+OR+%22LLMs%22+OR+%22GPT%22+OR+%22BERT%22+OR+transformers%29+AND+planning&id_list=&sortBy=relevance&sortOrder=descending&start=100&max_results=100
+2025-10-25 12:03:01,053 - INFO - Sleeping: 2.998478 seconds
+2025-10-25 12:03:04,057 - INFO - Requesting page (first: False, try: 3): https://export.arxiv.org/api/query?search_query=cat%3Acs.AI+AND+%28%22large+language+models%22+OR+%22LLMs%22+OR+%22GPT%22+OR+%22BERT%22+OR+transformers%29+AND+planning&id_list=&sortBy=relevance&sortOrder=descending&start=100&max_results=100
+2025-10-25 12:03:04,106 - ERROR - Error executing query 'cat:cs.AI AND ("large language models" OR "LLMs" OR "GPT" OR "BERT" OR transformers) AND planning': Page of results was unexpectedly empty (https://export.arxiv.org/api/query?search_query=cat%3Acs.AI+AND+%28%22large+language+models%22+OR+%22LLMs%22+OR+%22GPT%22+OR+%22BERT%22+OR+transformers%29+AND+planning&id_list=&sortBy=relevance&sortOrder=descending&start=100&max_results=100)
+2025-10-25 12:03:04,107 - INFO - Executing query: cat:cs.AI AND ("large language models" OR "LLMs" OR "GPT" OR "BERT" OR transformers) AND PDDL
+2025-10-25 12:03:04,108 - INFO - Sleeping: 2.996631 seconds
+2025-10-25 12:03:07,109 - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=cat%3Acs.AI+AND+%28%22large+language+models%22+OR+%22LLMs%22+OR+%22GPT%22+OR+%22BERT%22+OR+transformers%29+AND+PDDL&id_list=&sortBy=relevance&sortOrder=descending&start=0&max_results=100
+2025-10-25 12:03:07,233 - INFO - Got first page: 53 of 53 total results
+2025-10-25 12:03:07,265 - INFO - CSV file '/Users/nitingupta/usc/ai4s/projects/Lit.-Categorization/LLM-Planning-Viz/paper-scraping/out/new_arxiv_papers_20251025_120307.csv' has been created with 49 new relevant papers.
+2025-10-25 12:03:07,265 - INFO - Exporting database to CSV.
+2025-10-25 12:03:07,269 - INFO - Successfully exported 100 papers to '/Users/nitingupta/usc/ai4s/projects/Lit.-Categorization/LLM-Planning-Viz/paper-scraping/db/all_arxiv_papers_20251025_120307.csv'.

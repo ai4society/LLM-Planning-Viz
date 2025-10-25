@@ -27,7 +27,8 @@ BASE_DIR: str = os.environ.get(
 # Setup paths
 LOG_DIR = os.path.join(BASE_DIR, config["log_dir"])
 OUTPUT_DIR = os.path.join(BASE_DIR, config["output_dir"])
-DB_FILE = os.path.join(BASE_DIR, config["db_file"])
+DB_DIR = os.path.join(BASE_DIR, config["db_dir"])
+DB_FILE = os.path.join(DB_DIR, "arxiv_papers.db")
 
 # Create necessary directories
 os.makedirs(LOG_DIR, exist_ok=True)
@@ -86,6 +87,49 @@ def insert_paper(conn, paper):
         ),
     )
     conn.commit()
+
+
+def export_db_to_csv(conn):
+    """Export all papers from the database to a CSV file."""
+    logging.info("Exporting database to CSV.")
+
+    # Create a new CSV file with a timestamp
+    csv_filename = os.path.join(
+        DB_DIR,
+        f"all_arxiv_papers_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+    )
+
+    try:
+        c = conn.cursor()
+        c.execute("SELECT * FROM papers ORDER BY published_date DESC")
+        papers = c.fetchall()
+
+        if papers:
+            with open(csv_filename, mode="w", newline="", encoding="utf-8") as file:
+                writer = csv.writer(file)
+                # Write header
+                writer.writerow(
+                    [
+                        "ID",
+                        "Title",
+                        "Authors",
+                        "Published Date",
+                        "Abstract",
+                        "URL",
+                        "Categories",
+                    ]
+                )
+                # Write paper data
+                writer.writerows(papers)
+
+            logging.info(
+                f"Successfully exported {len(papers)} papers to '{csv_filename}'."
+            )
+        else:
+            logging.info("No papers in the database to export.")
+
+    except Exception as e:
+        logging.error(f"Error exporting database to CSV: {str(e)}")
 
 
 # Define the main keywords we're interested in
@@ -189,6 +233,9 @@ def main():
             logging.error(f"Error writing to CSV file: {str(e)}")
     else:
         logging.info("No new papers found in this run.")
+
+    # Export the entire database to a new CSV file
+    export_db_to_csv(conn)
 
     # Close database connection
     conn.close()

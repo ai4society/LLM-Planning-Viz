@@ -1,9 +1,0 @@
-[project]
-name = "llm-planning-viz"
-version = "0.1.0"
-description = "Literature Analysis for LLMs and Planning"
-readme = "README.md"
-requires-python = ">=3.12"
-dependencies = [
-    "arxiv>=2.2.0",
-]
