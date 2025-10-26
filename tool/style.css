@@ -148,6 +148,17 @@ header nav a:focus { /* Added focus for accessibility */
   transform: translateY(1px); /* Moves the button down */
 }
 
+.paper-links {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.paper-links .paper-link {
+  margin: 0;
+}
+
 .main-content {
   display: flex;
   padding: 20px 50px;
@@ -453,29 +464,50 @@ header nav a:focus { /* Added focus for accessibility */
 
 .popup-message {
   position: fixed;
-  bottom: 20px; /* Adjust as needed to position above the footer */
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #f8f9fa;
   color: #333;
-  padding: 20px;
+  padding: 20px 50px 20px 20px;
   border-radius: 8px;
   font-size: 14px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  z-index: 1000; /* Ensures it's above other content */
-  max-width: 80%;
-  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border: 1px solid #dee2e6;
+  z-index: 1000;
+  max-width: 600px;
+  text-align: left;
+  line-height: 1.5;
 }
 
 .popup-close {
   position: absolute;
-  top: 10px;
-  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 15px;
   border: none;
   background: none;
-  color: #333;
-  font-size: 24px;
+  color: #666;
+  font-size: 28px;
   cursor: pointer;
+  font-weight: bold;
+  line-height: 1;
+  transition: color 0.2s ease;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-close:hover {
+  color: #333;
+}
+
+.popup-message strong {
+  color: #007bff;
+  margin-right: 5px;
 }
 
 .year-selector {
@@ -510,12 +542,12 @@ header nav a:focus { /* Added focus for accessibility */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px 20px;
+  padding: 20px 20px 50px 20px;
 }
 
 .leaderboard-table {
   width: 90%;
-  max-width: 900px; /* Max width so it doesn't stretch full screen */
+  max-width: 1200px;
   border-collapse: collapse;
   background-color: #ffffff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -546,11 +578,56 @@ header nav a:focus { /* Added focus for accessibility */
   font-weight: bold;
 }
 
-.page-title {
+/* .page-title {
   text-align: center;
   font-size: 2rem;
   margin-top: 50px;
   margin-bottom: 20px;
   color: #2c3e50;
   font-weight: bold;
+} */
+
+.leaderboard-description {
+  max-width: 1200px;
+  width: 90%;
+  margin: 30px auto;
+  padding: 25px 40px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  line-height: 1.6;
+}
+
+.leaderboard-description h2 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.leaderboard-description p {
+  margin-bottom: 12px;
+  color: #555;
+  font-size: 1rem;
+}
+
+.leaderboard-description p strong {
+  color: #007bff;
+}
+
+.leaderboard-description ul {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.leaderboard-description ul li {
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.leaderboard-description .note {
+  background-color: #e7f3ff;
+  padding: 12px;
+  border-left: 4px solid #007bff;
+  margin-top: 15px;
+  border-radius: 4px;
 }
