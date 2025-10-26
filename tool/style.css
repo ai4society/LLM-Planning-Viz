@@ -171,7 +171,7 @@ header nav a:focus { /* Added focus for accessibility */
   max-width: 300px; /* Limit width for better readability */
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center category names */
+  align-items: stretch;
 }
 
 .category-list h2 {
@@ -194,20 +194,30 @@ header nav a:focus { /* Added focus for accessibility */
 }
 
 .category-list ul li a {
-  display: flex; /* Use flex to easily center text */
-  justify-content: center; /* Center text horizontally */
-  align-items: center; /* Center text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
-  color: #ffffff; /* White text for better readability */
-  background-image: linear-gradient(to right, #ff5f6d, #ffc371); /* Updated gradient for a vibrant look */
-  padding: 10px 20px; /* Increased padding for a more substantial touch area */
-  border-radius: 25px; /* More pronounced rounded corners for a softer look */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
-  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
-  font-weight: bold; /* Make category names bold */
-  position: relative; /* enable pseudo-element positioning */
+  color: #ffffff;
+  background-image: linear-gradient(to right, #ff5f6d, #ffc371);
+  padding: 10px 20px;           /* consistent padding across states */
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.25s ease, box-shadow 0.25s ease, background-image 0.25s ease;
-  z-index: 1; /* keep above the indicator */
+  font-weight: bold;
+  width: 100%;
+  box-sizing: border-box;      /* include border in width calculations */
+  position: relative;
+  z-index: 1;
+
+  /* Prevent the label from wrapping and changing height/width */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  /* Reserve border space so switching to a visible border won't change box size */
+  border: 2px solid transparent;
+  font-size: 1rem;             /* keep font-size constant to avoid reflow */
 }
 
 .category-list ul li a:hover, .category-list ul li a:focus {
@@ -216,28 +226,15 @@ header nav a:focus { /* Added focus for accessibility */
   transform: translateY(-3px); /* Subtle lift effect on hover */
 }
 
-/* Active State for Category Items */
 .category-list ul li a.active {
-  transform: translateX(6px) scale(1.04); /* slightly larger and nudged right */
+  transform: translateX(6px); /* nudge visually, avoid scale which can reflow/trigger wrap */
   box-shadow: 0 18px 40px rgba(99, 102, 241, 0.18), 0 6px 18px rgba(0,0,0,0.12);
   background-image: linear-gradient(90deg, #7c3aed 0%, #5b21b6 50%, #3b82f6 100%);
   color: #fff;
-  border: 2px solid rgba(124, 58, 237, 0.9);
-  padding: 12px 22px; /* slightly larger tappable area for the active item */
-  font-size: 1.02rem;
-}
 
-.category-list ul li a.active::before {
-  content: "";
-  position: absolute;
-  left: -12px;
-  top: 14%;
-  bottom: 14%;
-  width: 8px;
-  border-radius: 6px;
-  background: linear-gradient(180deg, #ffd166 0%, #ff6b6b 50%, #c084fc 100%);
-  box-shadow: 0 6px 18px rgba(160, 81, 255, 0.18);
-  z-index: -1; /* sits behind the link but above background */
+  /* Use the reserved border (same width) but visible color instead of changing box size */
+  border-color: rgba(124, 58, 237, 0.9);
+  padding: 10px 20px;
 }
 
 /* Slight text emphasis for the active label */
