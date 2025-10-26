@@ -1,5 +1,9 @@
 # LLM-based Planning Literature Analysis and Visualization
 
+> **🔎 [Explore the LLM Planning Visualization Tool](https://ai4society.github.io/LLM-Planning-Viz/)**
+>
+> _Click the link above to browse categorized literature interactively!_
+
 ## Overview
 
 The field of Large Language Models (LLMs) and Planning has expanded rapidly, with an 850% increase in research papers from 2022 to 2023, and has continued to grow since. This project provides a comprehensive pipeline to scrape, classify, and visualize the growing body of literature on this topic. Originating from our papers at ICAPS 2024, _"[On the Prospects of Incorporating Large Language Models (LLMs) in Automated Planning and Scheduling (APS)](https://arxiv.org/abs/2401.02500)"_, and ICAPS 2025, _"[Revisiting LLMs in Planning from Literature Review: a Semi-Automated Analysis Approach and Evolving Categories Representing Shifting Perspectives](https://doi.org/10.1609/icaps.v35i1.36141)"_, our repository aims to continually update and refine the categorization of relevant research.

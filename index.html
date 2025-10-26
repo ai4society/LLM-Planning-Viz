@@ -45,6 +45,14 @@
         <button id="year-2025" class="year-btn" onclick="switchYear('2025')">2025</button>
       </div>
 
+      <div
+        id="new-badge-legend"
+        class="new-legend"
+        role="note"
+        aria-live="polite"
+        style="display: none"
+      ></div>
+
       <div class="main-content">
         <aside class="category-list">
           <h2>LLMs in Automated Planning and Scheduling</h2>
@@ -94,6 +102,22 @@
       ];
 
       let currentYear = "2024"; // default year
+
+      // "NEW" window per companion paper: D1 till Nov 2023; D2 till Sep 2024. :contentReference[oaicite:1]{index=1}
+      const NEW_DATE_RANGES = {
+        2025: { from: "Nov 2023", to: "Sep 2024", tooltip: "Added Nov 2023–Sep 2024" },
+      };
+
+      function updateNewBadgeLegend() {
+        const legend = document.getElementById("new-badge-legend");
+        const cfg = NEW_DATE_RANGES[currentYear];
+        if (cfg) {
+          legend.innerHTML = `<span class="legend-pill">NEW</span> Papers added between <strong>${cfg.from}</strong> and <strong>${cfg.to}</strong>`;
+          legend.style.display = "block";
+        } else {
+          legend.style.display = "none";
+        }
+      }
 
       function loadCategories(year) {
         const categoryList = document.getElementById("category-list");
@@ -149,6 +173,8 @@
           });
         }
 
+        const newBadgeTitle = NEW_DATE_RANGES[currentYear]?.tooltip || "";
+
         filteredPapers.forEach((paper) => {
           const entryDiv = document.createElement("div");
           entryDiv.classList.add("paper-entry");
@@ -159,13 +185,13 @@
           const isNew = currentYear === "2025" && !oldTitles.has(paper.title.trim().toLowerCase());
 
           contentDiv.innerHTML = `
-                    <h4>
-                        <a href="${paper.link}" target="_blank">${paper.title}</a>
-                        ${isNew ? '<span class="new-paper-badge">NEW</span>' : ""}
-                    </h4>
-                    <p>${paper.authors}</p>
-                    <span class="paper-year">${paper.year}</span>
-                `;
+      <h4>
+        <a href="${paper.link}" target="_blank">${paper.title}</a>
+        ${isNew ? '<span class="new-paper-badge" title="' + newBadgeTitle + '">NEW</span>' : ""}
+      </h4>
+      <p>${paper.authors}</p>
+      <span class="paper-year">${paper.year}</span>
+    `;
 
           entryDiv.appendChild(contentDiv);
           papersContainer.appendChild(entryDiv);
@@ -182,6 +208,8 @@
         // Clear the papers container and description
         document.getElementById("papers-container").innerHTML = "";
         document.getElementById("category-description-text").textContent = "";
+
+        updateNewBadgeLegend();
       }
 
       function closePopup() {
@@ -190,6 +218,7 @@
 
       // Initial load
       loadCategories("2024");
+      updateNewBadgeLegend();
     </script>
   </body>
 </html>

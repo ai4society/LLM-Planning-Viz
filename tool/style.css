@@ -205,6 +205,9 @@ header nav a:focus { /* Added focus for accessibility */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
   transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
   font-weight: bold; /* Make category names bold */
+  position: relative; /* enable pseudo-element positioning */
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-image 0.25s ease;
+  z-index: 1; /* keep above the indicator */
 }
 
 .category-list ul li a:hover, .category-list ul li a:focus {
@@ -215,9 +218,39 @@ header nav a:focus { /* Added focus for accessibility */
 
 /* Active State for Category Items */
 .category-list ul li a.active {
-  transform: scale(0.95); /* Slightly reduce size to simulate pressing */
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Increase shadow for depth */
-  background-image: linear-gradient(to right, #ff5f6d, #ffc371); /* Keep the gradient consistent or change as desired */
+  transform: translateX(6px) scale(1.04); /* slightly larger and nudged right */
+  box-shadow: 0 18px 40px rgba(99, 102, 241, 0.18), 0 6px 18px rgba(0,0,0,0.12);
+  background-image: linear-gradient(90deg, #7c3aed 0%, #5b21b6 50%, #3b82f6 100%);
+  color: #fff;
+  border: 2px solid rgba(124, 58, 237, 0.9);
+  padding: 12px 22px; /* slightly larger tappable area for the active item */
+  font-size: 1.02rem;
+}
+
+.category-list ul li a.active::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 14%;
+  bottom: 14%;
+  width: 8px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #ffd166 0%, #ff6b6b 50%, #c084fc 100%);
+  box-shadow: 0 6px 18px rgba(160, 81, 255, 0.18);
+  z-index: -1; /* sits behind the link but above background */
+}
+
+/* Slight text emphasis for the active label */
+.category-list ul li a.active span,
+.category-list ul li a.active strong {
+  font-weight: 800;
+}
+
+/* Ensure hover remains pleasant for non-active and active items */
+.category-list ul li a:hover:not(.active),
+.category-list ul li a:focus:not(.active) {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
 }
 
 .category-list ul li a:active {
@@ -630,4 +663,25 @@ header nav a:focus { /* Added focus for accessibility */
   border-left: 4px solid #007bff;
   margin-top: 15px;
   border-radius: 4px;
+}
+
+.new-legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: -10px auto 10px; /* tuck it under the year buttons */
+  color: #444;
+  font-size: 0.95rem;
+  width: fit-content;
+}
+
+.new-legend .legend-pill {
+  background: linear-gradient(to right, #c084fc, #7c3aed);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
 }
