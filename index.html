@@ -41,8 +41,8 @@
 
       <!-- Year Selector -->
       <div class="year-selector">
-        <button id="year-2024" class="year-btn active" onclick="switchYear('2024')">2024</button>
-        <button id="year-2025" class="year-btn" onclick="switchYear('2025')">2025</button>
+        <button id="year-2024" class="year-btn" onclick="switchYear('2024')">2024</button>
+        <button id="year-2025" class="year-btn active" onclick="switchYear('2025')">2025</button>
       </div>
 
       <div
@@ -101,7 +101,7 @@
         { name: "Replanning", id: "replanning" },
       ];
 
-      let currentYear = "2024"; // default year
+      let currentYear = "2025"; // default year
 
       // "NEW" window per companion paper: D1 till Nov 2023; D2 till Sep 2024. :contentReference[oaicite:1]{index=1}
       const NEW_DATE_RANGES = {
@@ -217,8 +217,18 @@
       }
 
       // Initial load
-      loadCategories("2024");
+      loadCategories("2025");
       updateNewBadgeLegend();
+
+      // Auto-select "Language Translation" category on page load
+      setTimeout(() => {
+        const languageTranslationLink = document.querySelector(
+          '[data-category="language-translation"]'
+        );
+        if (languageTranslationLink) {
+          languageTranslationLink.click();
+        }
+      }, 100);
     </script>
   </body>
 </html>
