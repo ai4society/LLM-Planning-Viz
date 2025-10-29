@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytics | LLM-Planning</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <nav>
+          <a href="../index.html">Home</a>
+          <a href="analytics.html">Analytics</a>
+          <a href="team.html">Team</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="header-content">
+          <h1>
+            Taxonomy On Incorporating Large Language Models in Planning
+            <span class="badge">Accepted at ICAPS 2024, 2025</span>
+          </h1>
+          <p>Analytics for automated paper categorization methods</p>
+          <div class="paper-links">
+            <a target="_blank" href="https://arxiv.org/abs/2401.02500" class="paper-link"
+              >2024 Paper</a
+            >
+            <a target="_blank" href="https://doi.org/10.1609/icaps.v35i1.36141 " class="paper-link"
+              >2025 Paper</a
+            >
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <!-- Page Introduction -->
+        <section class="page-introduction">
+          <h2>Research Analytics Overview</h2>
+          <p>
+            This page presents our comprehensive analysis of the rapidly evolving literature at the
+            intersection of large language models (LLMs) and automated planning. Our research tracks
+            category drift and emerging trends through an automated extraction and categorization
+            system that continuously monitors new publications.
+          </p>
+          <p>
+            Building on our initial survey of <strong>126 papers</strong> (D₁, until November 2023)
+            organized into eight categories, we analyzed <strong>47 additional papers</strong> (D₂,
+            until September 2024). This analysis revealed significant shifts: a decline in six
+            categories, growth in two, and the emergence of two entirely new categories—<em
+              >Goal Decomposition</em
+            >
+            and <em>Replanning</em>—reflecting the field's evolving perspectives on LLM capabilities
+            in planning tasks.
+          </p>
+          <p>
+            <strong>On this page, you'll find:</strong> (1)
+            <a href="#category-distribution" class="intro-link">category distribution analysis</a>
+            comparing our two datasets, (2)
+            <a href="#workflow" class="intro-link">paper submission workflow</a> illustrating our
+            integration process, and (3)
+            <a href="#leaderboard" class="intro-link">classification performance leaderboard</a>
+            comparing automated and human-augmented methods.
+          </p>
+        </section>
+
+        <!-- Section 1: Category Distribution Histogram -->
+        <section class="analysis-section" id="category-distribution">
+          <div class="section-header">
+            <h2>
+              <button
+                class="dropdown-toggle"
+                onclick="toggleSection('section1')"
+                aria-expanded="true"
+                aria-controls="section1-content"
+              >
+                <span class="dropdown-icon">▼</span>
+                Category Distribution Analysis
+              </button>
+            </h2>
+            <div id="section1-content" class="section-content">
+              <p class="section-description">
+                The histogram below compares how research focus has shifted between our two
+                datasets. Notable trends include the continued dominance of
+                <strong>Plan Generation</strong> (though decreasing in percentage), significant
+                growth in <strong>Model Construction</strong> and <strong>Tool Integration</strong>,
+                and the emergence of new categories addressing task structuring and adaptability.
+                These shifts reflect broader recognition that LLMs face fundamental challenges in
+                autonomous planning but excel when integrated within frameworks with external
+                verifiers and specialized tools.
+              </p>
+
+              <figure class="figure histogram">
+                <img
+                  src="imgs/category_distribution.png"
+                  alt="Bar chart comparing category distributions between dataset D1 and D2. Bars are annotated with counts; new categories Goal Decomposition and Replanning appear in D2."
+                  loading="lazy"
+                  width="1200"
+                  height="700"
+                />
+                <figcaption>
+                  <strong>Figure 1:</strong> Comparison of category distributions between
+                  <em>D₁</em> and <em>D₂</em>. Percentages shown on the y-axis; counts annotated
+                  above bars. The two rightmost categories (Goal Decomposition and Replanning) are
+                  newly identified in D₂.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Decision Flowchart -->
+        <section class="analysis-section" id="workflow">
+          <div class="section-header">
+            <h2>
+              <button
+                class="dropdown-toggle"
+                onclick="toggleSection('section2')"
+                aria-expanded="true"
+                aria-controls="section2-content"
+              >
+                <span class="dropdown-icon">▼</span>
+                Paper Submission and Integration Workflow
+              </button>
+            </h2>
+            <div id="section2-content" class="section-content">
+              <p class="section-description">
+                Our platform features an interactive visualization tool that allows researchers to
+                explore systematically categorized papers and submit their own work for inclusion.
+                The flowchart below illustrates the complete process from submission through
+                verification to integration into our database. This workflow ensures quality control
+                while enabling community participation in maintaining an up-to-date taxonomy of
+                LLM-planning research.
+              </p>
+
+              <figure class="figure flowchart">
+                <img
+                  src="imgs/decision_flow.gif"
+                  alt="Flowchart showing the submission, verification and integration workflow for adding research papers to the visualization tool."
+                  loading="lazy"
+                  width="300"
+                  height="200"
+                />
+                <figcaption>
+                  <strong>Figure 2:</strong> Decision flowchart for adding research papers to the
+                  visualization tool. The process includes submission, verification, and integration
+                  stages to ensure data quality.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Leaderboard -->
+        <section class="analysis-section leaderboard-section" id="leaderboard">
+          <div class="section-header">
+            <h2>
+              <button
+                class="dropdown-toggle"
+                onclick="toggleSection('section3')"
+                aria-expanded="true"
+                aria-controls="section3-content"
+              >
+                <span class="dropdown-icon">▼</span>
+                Classification Performance Comparison
+              </button>
+            </h2>
+            <div id="section3-content" class="section-content">
+              <p class="section-description">
+                To encourage innovation in automated paper categorization, we benchmark multiple
+                approaches and present their performance below. We compare traditional machine
+                learning methods (SVM, Decision Trees, Random Forests) and transformer-based models
+                (BERT, SciBERT) across both single-label and multi-label classification setups.
+              </p>
+              <p class="section-description">
+                <strong>Dataset Information:</strong> <strong>D₁</strong> contains 126 papers (until
+                November 2023), <strong>D₂</strong> contains 47 papers (until September 2024).
+                <strong>Single-label</strong> setup assigns one primary category per paper;
+                <strong>multi-label</strong> setup allows multiple categories to reflect overlapping
+                research themes.
+              </p>
+              <p class="section-description key-finding">
+                <strong>Key Finding:</strong> Decision Trees (DT) perform best among automated
+                methods with an F1 score of 0.349 on the multi-label setup. However, human-augmented
+                classification achieves a substantially higher score of <strong>0.83</strong>,
+                demonstrating the critical value of expert review for identifying emerging
+                categories and capturing nuanced distinctions that current automated methods miss.
+              </p>
+
+              <div class="leaderboard-container">
+                <table
+                  class="leaderboard-table"
+                  role="table"
+                  tabindex="0"
+                  aria-label="Classification performance leaderboard"
+                >
+                  <caption>
+                    F1 Macro Scores — Single-label and multi-label setups on datasets D₁ and D₂
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Classifier Name</th>
+                      <th scope="col">Single-Label Setup<br /><em>D₁</em></th>
+                      <th scope="col">Single-Label Setup<br /><em>D₂</em></th>
+                      <th scope="col">Multi-Label Setup<br /><em>D₁</em></th>
+                      <th scope="col">Multi-Label Setup<br /><em>D₂</em></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>SVM</td>
+                      <td>0.222</td>
+                      <td>0.346</td>
+                      <td>0.123</td>
+                      <td>0.280</td>
+                    </tr>
+                    <tr>
+                      <td>DT</td>
+                      <td>0.124</td>
+                      <td>0.258</td>
+                      <td>0.233</td>
+                      <td><strong aria-label="best multi label on D2">0.349</strong></td>
+                    </tr>
+                    <tr>
+                      <td>RF</td>
+                      <td>0.117</td>
+                      <td>0.213</td>
+                      <td>0.044</td>
+                      <td>0.215</td>
+                    </tr>
+                    <tr>
+                      <td>BERT</td>
+                      <td>0.049</td>
+                      <td>0.043</td>
+                      <td>0.102</td>
+                      <td>0.069</td>
+                    </tr>
+                    <tr>
+                      <td>SciBERT</td>
+                      <td>0.000</td>
+                      <td>0.013</td>
+                      <td>0.102</td>
+                      <td>0.150</td>
+                    </tr>
+                    <tr class="leaderboard-highlight">
+                      <td>Human-augmented</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td><strong>0.83</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      function toggleSection(sectionId) {
+        const content = document.getElementById(sectionId + "-content");
+        const button = content.previousElementSibling.querySelector(".dropdown-toggle");
+        const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+        if (isExpanded) {
+          content.classList.add("collapsed");
+          button.setAttribute("aria-expanded", "false");
+        } else {
+          content.classList.remove("collapsed");
+          button.setAttribute("aria-expanded", "true");
+        }
+      }
+
+      // Smooth scroll to sections when clicking intro links
+      document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll(".intro-link");
+        links.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            const targetSection = document.getElementById(targetId);
+
+            // Expand the section if it's collapsed
+            const content = targetSection.querySelector(".section-content");
+            const button = targetSection.querySelector(".dropdown-toggle");
+            if (content.classList.contains("collapsed")) {
+              content.classList.remove("collapsed");
+              button.setAttribute("aria-expanded", "true");
+            }
+
+            // Smooth scroll
+            targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

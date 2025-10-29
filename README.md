@@ -42,7 +42,7 @@ We welcome contributions to expand and refine our categorization. To add papers 
 
 Below is a flowchart that outlines the process from submitting your contribution via the Google Form to seeing it displayed on the website:
 
-![Contribution Process](./tool/flowchart/Decision_Flow.gif)
+![Contribution Process](./tool/flowchart/decision_flow.gif)
 
 ## Support and Contact
 
