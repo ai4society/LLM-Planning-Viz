@@ -256,30 +256,28 @@ header nav a:focus { /* Added focus for accessibility */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
-.new-category {
-  animation: soft-glow 2s infinite alternate;
-  border: 2px solid #A18CD1; /* soft purple */
-  border-radius: 25px;
-  transition: all 0.3s ease;
-}
-
-@keyframes modern-violet-glow {
-  0% {
-    box-shadow: 0 0 4px rgba(192, 132, 252, 0.4), 0 0 8px rgba(124, 58, 237, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 8px rgba(192, 132, 252, 0.7), 0 0 16px rgba(124, 58, 237, 0.7);
-  }
-  100% {
-    box-shadow: 0 0 4px rgba(192, 132, 252, 0.4), 0 0 8px rgba(124, 58, 237, 0.4);
-  }
-}
-
+/* New category highlight styling with enhanced glow effect */
 .new-category {
   animation: modern-violet-glow 3.5s infinite alternate;
   border: 2px solid #c084fc; /* Light neon violet */
   border-radius: 25px;
   transition: all 0.3s ease;
+  position: relative;
+}
+
+@keyframes modern-violet-glow {
+  0% {
+    box-shadow: 0 0 5px #c084fc, 0 0 10px #c084fc, 0 0 15px #a855f7, 0 0 20px #9333ea;
+    border-color: #c084fc;
+  }
+  50% {
+    box-shadow: 0 0 10px #c084fc, 0 0 20px #a855f7, 0 0 30px #9333ea, 0 0 40px #7c3aed;
+    border-color: #a855f7;
+  }
+  100% {
+    box-shadow: 0 0 5px #c084fc, 0 0 10px #c084fc, 0 0 15px #a855f7, 0 0 20px #9333ea;
+    border-color: #c084fc;
+  }
 }
 
 .new-paper-badge {
